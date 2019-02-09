@@ -1,7 +1,7 @@
 import web3 from './web3';
 import CampaignFactory from './construct/CampaignFactory.json';
 
-const instace = web3.eth.Contract(
+const instance = new web3.eth.Contract(
   JSON.parse(CampaignFactory.interface),
   '0x314EeF11c0ee8D51F8a62da78543eFD58FAC58c0'
 )

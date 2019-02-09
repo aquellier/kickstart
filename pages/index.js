@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import factory from '../ethereum/factory'
+import factory from '../ethereum/factory';
 
 class CampaignIndex extends Component {
   async componentDidMount() {
