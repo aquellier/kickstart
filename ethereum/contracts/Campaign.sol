@@ -1,14 +1,14 @@
-pragma solidity ^0.5.2;
+pragma solidity ^0.4.25;
 
 contract CampaignFactory {
-    Campaign[] public deployedCampaigns;
+    address[] public deployedCampaigns;
 
     function createCampaign(uint minimum) public {
-        Campaign newCampaign = new Campaign(minimum, msg.sender);
+        address newCampaign = new Campaign(minimum, msg.sender);
         deployedCampaigns.push(newCampaign);
     }
 
-    function getDeployedCampaigns() public view returns (Campaign[] memory) {
+    function getDeployedCampaigns() public view returns (address[]) {
         return deployedCampaigns;
     }
 }
@@ -17,7 +17,7 @@ contract Campaign {
     struct Request {
         string description;
         uint value;
-        address payable recipient;
+        address recipient;
         bool complete;
         uint approvalCount;
         mapping(address => bool) approvals;
@@ -29,30 +29,30 @@ contract Campaign {
     mapping(address => bool) public approvers;
     uint public approversCount;
 
-    modifier restricted {
-        require (msg.sender == manager);
+    modifier restricted() {
+        require(msg.sender == manager);
         _;
     }
 
-    constructor(uint minimum, address creator) public {
+    function Campaign(uint minimum, address creator) public {
         manager = creator;
         minimumContribution = minimum;
     }
 
     function contribute() public payable {
-        require (msg.value > minimumContribution);
+        require(msg.value > minimumContribution);
 
         approvers[msg.sender] = true;
         approversCount++;
     }
 
-    function createRequest(string memory description, uint value, address payable recipient) public restricted {
+    function createRequest(string description, uint value, address recipient) public restricted {
         Request memory newRequest = Request({
-            description: description,
-            value: value,
-            recipient: recipient,
-            complete: false,
-            approvalCount: 0
+           description: description,
+           value: value,
+           recipient: recipient,
+           complete: false,
+           approvalCount: 0
         });
 
         requests.push(newRequest);
@@ -76,5 +76,21 @@ contract Campaign {
 
         request.recipient.transfer(request.value);
         request.complete = true;
+    }
+
+    function getSummary() public view returns (
+      uint, uint, uint, uint, address
+      ) {
+        return (
+          minimumContribution,
+          this.balance,
+          requests.length,
+          approversCount,
+          manager
+        );
+    }
+
+    function getRequestsCount() public view returns (uint) {
+        return requests.length;
     }
 }
