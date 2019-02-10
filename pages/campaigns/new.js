@@ -7,7 +7,8 @@ import web3 from '../../ethereum/web3';
 class CampaignNew extends Component {
   state = {
     minimumContribution: '',
-    errorMessage: ''
+    errorMessage: '',
+    loading: false
   }
 
   // Whenever we call a function on a contract
@@ -15,6 +16,9 @@ class CampaignNew extends Component {
   onSubmit = async (event) => {
     // Prevent from submitting the form when event occurs
     event.preventDefault();
+
+    // Starting the spinner
+    this.setState({ loading: true, errorMessage: '' })
     try {
       const accounts = await web3.eth.getAccounts();
       await factory.methods
@@ -26,6 +30,9 @@ class CampaignNew extends Component {
       // This will render the message to the user entering wrong input
       this.setState({ errorMessage: err.message });
     }
+
+    // Stopping the spinner
+    this.setState({ loading: false })
   };
 
   // No parentheses on the onSubmit function because we
@@ -52,7 +59,7 @@ class CampaignNew extends Component {
         </Form.Field>
 
         <Message error header="Oops!" content={this.state.errorMessage} />
-        <Button primary>Create</Button>
+        <Button loading={this.state.loading} primary>Create</Button>
       </Form>
     </Layout>
     )
