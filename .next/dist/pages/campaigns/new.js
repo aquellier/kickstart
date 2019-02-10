@@ -32,6 +32,8 @@ var _Layout = require('../../components/Layout');
 
 var _Layout2 = _interopRequireDefault(_Layout);
 
+var _semanticUiReact = require('semantic-ui-react');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _jsxFileName = '/Users/antoinequellier/code/aquellier/solidity/kickstart/pages/campaigns/new.js?entry';
@@ -52,14 +54,38 @@ var CampaignNew = function (_Component) {
       return _react2.default.createElement(_Layout2.default, {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 7
-        }
-      }, _react2.default.createElement('h1', {
-        __source: {
-          fileName: _jsxFileName,
           lineNumber: 8
         }
-      }, 'New campaign'));
+      }, _react2.default.createElement('h3', {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 9
+        }
+      }, 'Create a campaign'), _react2.default.createElement(_semanticUiReact.Form, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 11
+        }
+      }, _react2.default.createElement(_semanticUiReact.Form.Field, {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 12
+        }
+      }, _react2.default.createElement('label', {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 13
+        }
+      }, 'Minimum Contribution'), _react2.default.createElement('input', {
+        __source: {
+          fileName: _jsxFileName,
+          lineNumber: 14
+        }
+      })), _react2.default.createElement(_semanticUiReact.Button, { primary: true, __source: {
+          fileName: _jsxFileName,
+          lineNumber: 16
+        }
+      }, 'Create')));
     }
   }]);
 
@@ -67,4 +93,4 @@ var CampaignNew = function (_Component) {
 }(_react.Component);
 
 exports.default = CampaignNew;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2NhbXBhaWducy9uZXcuanMiXSwibmFtZXMiOlsiUmVhY3QiLCJDb21wb25lbnQiLCJMYXlvdXQiLCJDYW1wYWlnbk5ldyJdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxBQUFPLEFBQVM7Ozs7QUFDaEIsQUFBTyxBQUFZOzs7Ozs7Ozs7SUFFYixBOzs7Ozs7Ozs7Ozs2QkFDSyxBQUNQOzZCQUNBLEFBQUM7O29CQUFEO3NCQUFBLEFBQ0U7QUFERjtBQUFBLE9BQUEsa0JBQ0UsY0FBQTs7b0JBQUE7c0JBQUE7QUFBQTtBQUFBLFNBRkYsQUFDQSxBQUNFLEFBR0g7Ozs7O0FBUHVCLEEsQUFVMUI7O2tCQUFBLEFBQWUiLCJmaWxlIjoibmV3LmpzP2VudHJ5Iiwic291cmNlUm9vdCI6Ii9Vc2Vycy9hbnRvaW5lcXVlbGxpZXIvY29kZS9hcXVlbGxpZXIvc29saWRpdHkva2lja3N0YXJ0In0=
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhZ2VzL2NhbXBhaWducy9uZXcuanMiXSwibmFtZXMiOlsiUmVhY3QiLCJDb21wb25lbnQiLCJMYXlvdXQiLCJGb3JtIiwiQnV0dG9uIiwiQ2FtcGFpZ25OZXciXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsQUFBTyxBQUFTOzs7O0FBQ2hCLEFBQU8sQUFBWTs7OztBQUNuQixBQUFTLEFBQU07Ozs7Ozs7SSxBQUVUOzs7Ozs7Ozs7Ozs2QkFDSyxBQUNQOzZCQUNBLEFBQUM7O29CQUFEO3NCQUFBLEFBQ0U7QUFERjtBQUFBLE9BQUEsa0JBQ0UsY0FBQTs7b0JBQUE7c0JBQUE7QUFBQTtBQUFBLFNBREYsQUFDRSxBQUVBLHNDQUFBLEFBQUM7O29CQUFEO3NCQUFBLEFBQ0U7QUFERjtBQUFBLHlCQUNHLGNBQUQsc0JBQUEsQUFBTTs7b0JBQU47c0JBQUEsQUFDRTtBQURGO0FBQUEseUJBQ0UsY0FBQTs7b0JBQUE7c0JBQUE7QUFBQTtBQUFBLFNBREYsQUFDRSxBQUNBOztvQkFBQTtzQkFISixBQUNFLEFBRUUsQUFFRjtBQUZFO0FBQUEsMkJBRUYsQUFBQyx5Q0FBTyxTQUFSO29CQUFBO3NCQUFBO0FBQUE7U0FUSixBQUNBLEFBR0UsQUFLRSxBQUlMOzs7OztBQWZ1QixBLEFBa0IxQjs7a0JBQUEsQUFBZSIsImZpbGUiOiJuZXcuanM/ZW50cnkiLCJzb3VyY2VSb290IjoiL1VzZXJzL2FudG9pbmVxdWVsbGllci9jb2RlL2FxdWVsbGllci9zb2xpZGl0eS9raWNrc3RhcnQifQ==

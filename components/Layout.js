@@ -4,6 +4,7 @@ import { Container } from 'semantic-ui-react';
 import Head from 'next/head';
 
 // The head moves the link tag in the head of our HTML
+// We can also use this for metatags
 export default props => {
   return (
     <Container>
