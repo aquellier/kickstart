@@ -5,7 +5,7 @@ import Layout from '../components/Layout';
 import { Link } from '../routes';
 
   // Next wants to be able to get the initial data without
-  // rendering the component, hence this statis keyword
+  // rendering the component, hence this static keyword
 class CampaignIndex extends Component {
   static async getInitialProps() {
     const campaigns = await factory.methods.getDeployedCampaigns().call();
