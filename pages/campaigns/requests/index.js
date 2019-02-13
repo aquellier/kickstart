@@ -4,7 +4,7 @@ import { Button } from 'semantic-ui-react';
 import { Link } from '../../../routes';
 class RequestIndex extends Component {
   static async getInitialProps(props) {
-    const { address } = pros.query;
+    const { address } = props.query;
 
     return { address };
   }
