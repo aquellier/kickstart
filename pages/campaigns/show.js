@@ -75,7 +75,7 @@ class CampaignShow extends Component {
         <Grid>
           <Grid.Column width={10}>
             {this.renderCards()}
-            <Link route={`/campaign/${this.props.address}/requests`}>
+            <Link route={`/campaigns/${this.props.address}/requests`}>
             <a>
               <Button primary>
                 View requests
