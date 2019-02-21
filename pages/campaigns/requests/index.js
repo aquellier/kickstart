@@ -11,14 +11,12 @@ class RequestIndex extends Component {
     const requestsCount = await campaign.methods.getRequestsCount().call();
 
     const requests = await Promise.all(
-      Array(requestsCount).fill().map((element, index) => {
+      Array(parseInt(requestsCount)).fill().map((element, index) => {
         return campaign.methods.requests(index).call();
       })
     );
 
-    console.log(requests);
-
-    return { address };
+    return { address, requests, requestsCount };
   }
   render() {
     return (
