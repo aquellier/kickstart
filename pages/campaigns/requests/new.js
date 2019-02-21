@@ -10,7 +10,7 @@ class RequestNew extends Component {
     value: '',
     description: '',
     recipient: '',
-    // loading: false,
+    loading: false,
     errorMessage: ''
   };
 
@@ -26,7 +26,7 @@ class RequestNew extends Component {
     const campaign = Campaign(this.props.address);
     const { description, value, recipient } = this.state;
 
-    // this.setState({ loading: true, errorMessage: '' });
+    this.setState({ loading: true, errorMessage: '' });
 
     try {
       const accounts = await web3.eth.getAccounts();
@@ -39,7 +39,7 @@ class RequestNew extends Component {
       this.setState({ errorMessage: err.message });
     }
 
-    // this.setState({ loading: false });
+    this.setState({ loading: false });
   };
 
   render() {
@@ -73,12 +73,11 @@ class RequestNew extends Component {
               value={this.state.recipient}
               onChange={event =>
                 this.setState({ recipient: event.target.value })}
-          // loading={this.state.loading}
             />
           </Form.Field>
 
           <Message error header="Oops!" content={this.state.errorMessage} />
-          <Button primary >
+          <Button primary loading={this.state.loading}>
             Create!
           </Button>
         </Form>
