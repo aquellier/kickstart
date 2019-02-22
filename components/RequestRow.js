@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Table, Button } from 'semantic-ui-react';
 import web3 from '../ethereum/web3';
 import Campaign from '../ethereum/campaign';
+
 class RequestRow extends Component {
 // This will be an asynchronous function because we're going to probably
 // eventually have to reach out to our campaign and attempt to reference
@@ -14,6 +15,16 @@ class RequestRow extends Component {
       from: accounts[0]
     });
   };
+
+  onFinalize = async () => {
+    const campaign = Campaign(this.props.address);
+
+    const accounts = await web3.eth.getAccounts();
+
+    await campaign.methods.finalizeRequest(this.props.id).send({
+      from: accounts[0]
+    });
+  }
 
   render() {
     const { Row, Cell } = Table;
@@ -31,6 +42,11 @@ class RequestRow extends Component {
         <Cell>
           <Button color="green" basic onClick={this.onApprove}>
             Approve
+          </Button>
+        </Cell>
+        <Cell>
+          <Button color="teal" basic onClick={this.onFinalize}>
+            Finalize
           </Button>
         </Cell>
       </Row>
